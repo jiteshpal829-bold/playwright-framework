@@ -47,7 +47,7 @@ test.describe("Cart Page Validation", () => {
     test ("Validate continue Button" , async({page})=>
         {
             await cartPage.clickCheckoutButton();
-            await checkoutPage.fillCheckoutDetail(checkouData.firstName,checkouData.lastName,checkouData.postalcode)
+            await checkoutPage.fillCheckoutDetail(checkoutData.firstName,checkoutData.lastName,checkoutData.postalcode)
             await checkoutPage.clickcontinueButton();
     })
     
