@@ -1,0 +1,41 @@
+import { Page } from "@playwright/test";
+import { CheckoutPageLocators } from "../locator/checkoutPageLocators"
+
+export class CheckoutPage 
+{
+    constructor (private page : Page) {}
+
+    async getCheckoutElements() 
+    {
+        return {
+            pageInfo : this.page.locator(CheckoutPageLocators.pageInfo),
+            cancel : this.page.locator(CheckoutPageLocators.cancelButton),
+            continue : this.page.locator(CheckoutPageLocators.continueButton)
+
+        }
+
+    }
+         async fillCheckoutDetail(firstName : string , lastName : string , postalcode : string)
+         {
+            await this.page.fill(CheckoutPageLocators.firstName,firstName)
+            await this.page.fill(CheckoutPageLocators.lastName,lastName)
+            await this.page.fill(CheckoutPageLocators.postalcode,postalcode)
+         }
+
+         async clickcancel()
+         {
+            await this.page.click(CheckoutPageLocators.cancelButton);
+         }
+        
+         async clickcontinueButton() 
+         {
+            await this.page.click(CheckoutPageLocators.continueButton);
+         }
+
+         async getErrorMessage()
+         {
+            return await this.page.locator(CheckoutPageLocators.errorMsg).textContent();
+            
+         }
+
+}
