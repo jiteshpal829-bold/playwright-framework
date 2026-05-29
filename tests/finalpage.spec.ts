@@ -52,7 +52,14 @@ test.describe("Checkout Overview Validation", () => {
               const message = await finalPage.getSuccessMsgText();
               expect(message).toBe("Thank you for your order!");
         })
-        test ("Validate BackHomeButton",async({page})=>
+        test ("Validate BackHomeButton 1",async({page})=>
+            {
+                await finalPage.clickOnBackHomeBtn();
+                await expect (page).toHaveURL("https://www.saucedemo.com/inventory.html");
+
+        })
+
+        test ("Validate BackHomeButton 2",async({page})=>
             {
                 await finalPage.clickOnBackHomeBtn();
                 await expect (page).toHaveURL("https://www.saucedemo.com/inventory.html");
