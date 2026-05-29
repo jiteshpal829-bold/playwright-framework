@@ -59,7 +59,7 @@ test.describe("Checkout Overview Validation", () => {
         expect (calculatedTotal).toBe(UITtemTotal)
     })
 
-    test.only("Validate Final Total (Item Total + Tax)", async({page})=>
+    test("Validate Final Total (Item Total + Tax)", async({page})=>
         {
          const itemTotal = await checkoutOverview.getItemTotal();
          const tax = await checkoutOverview.getTax();
