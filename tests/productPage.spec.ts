@@ -70,7 +70,7 @@ test.describe("Product Page Validation", () => {
 
     })
 
-    test.only('Filter By Price High to Low', async () => {
+    test('Filter By Price High to Low', async () => {
         
         await productPage.filterByHighToLow();
         const prices = await productPage.getProductPrices()

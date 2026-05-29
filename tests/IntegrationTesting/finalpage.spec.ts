@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
-import { BASE_URL, USERNAME, PASSWORD } from '../utils/envConfig';
-import { ProductPage } from '../pages/ProductPage';
-import { LoginPage } from '../pages/LoginPage';
-import { LoginLocators } from '../locator/Loginlocators';
-import { CartPage } from '../pages/CartPage';
-import { CheckoutPage } from '../pages/Checkoutpage';
-import {checkoutData } from  '../test-data/checkoutData'
-import { productsToCart } from '../test-data/products';
-import { CheckoutOverPage} from '../pages/checkoutOverviewPage'
-import { FinalPage } from '../pages/FinalPage';
+import { BASE_URL, USERNAME, PASSWORD } from '../../utils/envConfig';
+import { ProductPage } from '../../pages/ProductPage';
+import { LoginPage } from '../../pages/LoginPage';
+import { LoginLocators } from '../../locator/Loginlocators';
+import { CartPage } from '../../pages/CartPage';
+import { CheckoutPage } from '../../pages/Checkoutpage';
+import {checkoutData } from  '../../test-data/checkoutData'
+import { productsToCart } from '../../test-data/products';
+import { CheckoutOverPage} from '../../pages/checkoutOverviewPage'
+import { FinalPage } from '../../pages/FinalPage';
 
 test.describe("Checkout Overview Validation", () => {
     let loginPage: LoginPage
