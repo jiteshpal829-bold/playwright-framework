@@ -67,16 +67,17 @@ test.describe("Cart Page Validation", () => {
             
         const getSpecificProductDetails = await productPage.getSpecificProductDetails(productsToCart);
         await productPage.addSpecificProductsToCart(productsToCart);
-        await productPage.clickonCartLink();
+        await productPage.clickonCartLink();    
         
         const cartProducts = await cartPage.getCartProducts();
-        
-        expect (cartProducts).toEqual(getSpecificProductDetails);
+        console.log("Cart Products =", cartProducts);
+
+        expect(cartProducts).toEqual(getSpecificProductDetails);
     })
     
     test("Validate Remove Product Functionality" , async({page})=>
         {
-            await productPage.addAllProductsToCart();
+            await productPage.addAllProductsToCart();   
           await productPage.clickonCartLink();
 
           const initialProduct  = await cartPage.getCartProducts();

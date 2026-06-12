@@ -47,23 +47,35 @@ export class ProductPage {
         }
     }
 
-    async addSpecificProductsToCart(product: string[])  //String of an array 
+    // async addSpecificProductsToCart(product: string[])  //String of an array 
 
-    {
-        const addProducts = this.page.locator(productPageLocator.productNames);
-        const count = await addProducts.count();
-        var productName = '';
-        for (let i = 0; i < count; i++) // if title is matching with product then it will click on Add To Cart Button 
-        {
-            const name = await addProducts.nth(i).textContent();
+    // {
+    //     const addProducts = this.page.locator(productPageLocator.productNames);
+    //     const count = await addProducts.count();
+    //     var productName = '';
+    //     for (let i = 0; i < count; i++) // if title is matching with product then it will click on Add To Cart Button 
+    //     {
+    //         const name = await addProducts.nth(i).textContent();
 
-            if (name && productName.includes(name.trim())) {
-                await this.page.locator(productPageLocator.addToCartButton).nth(i).click();
-                await this.page.waitForTimeout(3000);
-            }
+    //         if (name && productName.includes(name.trim())) {
+    //             await this.page.locator(productPageLocator.addToCartButton).nth(i).click();
+    //             await this.page.waitForTimeout(3000);
+    //         }
+    //     }
+    // }
+
+    async addSpecificProductsToCart(products: string[]) {
+    const addProducts = this.page.locator(productPageLocator.productNames);
+    const count = await addProducts.count();
+
+    for (let i = 0; i < count; i++) {
+        const name = await addProducts.nth(i).textContent();
+
+        if (name && products.includes(name.trim())) {
+            await this.page.locator(productPageLocator.addToCartButton).nth(i).click();
         }
     }
-
+}
     //Need to create 4 different methods
     async filterByNameAtoZ() {
         await this.page.selectOption(productPageLocator.filterDropDown, "az")
